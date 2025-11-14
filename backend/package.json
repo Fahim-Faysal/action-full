@@ -4,7 +4,6 @@
   "main": "app.js",
   "scripts": {
     "start": "node server.js",
-    "lint": "eslint . --config ./eslint.config.mjs",
     "test": "mocha"
   },
   "author": "",
@@ -18,9 +17,6 @@
     "mysql2": "^3.15.3"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react": "^7.37.5",
     "globals": "^16.5.0"
   }
 }
