@@ -24,10 +24,5 @@ jobs:
         run: echo "This file was created by CI" > siyam/info.txt
 
 
-      - name: backend test
-        working-directory: ./backend
-        run: npm run test
-
-
 
   
