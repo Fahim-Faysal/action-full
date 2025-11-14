@@ -16,10 +16,20 @@ jobs:
           cache-dependency-path: |
             backend/package-lock.json
             frontend/package-lock.json
-            
-      - name: Create reports directory
-        working-directory: ./backend
-        run: mkdir -p reports
+
+      - name: Create folder
+        run: mkdir -p siyam
+
+      - name:   Create a file in the folder
+        run: echo "This file was created by CI" > siyam/info.txt
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add siyam
+          git commit -m "CI: Add /siyam folder and generated file" || echo "Nothing to commit"
+          git push
 
 
       - name: backend test
