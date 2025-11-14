@@ -1,0 +1,33 @@
+name: nodeJS Pipeline
+on: push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+      - name: Use nodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
+      - name: backend lint
+        working-directory: ./backend
+        run: npm run lint
+
+      - name: backend test
+        working-directory: ./backend
+        run: npm run test
+
+      
+      - name: Upload Test Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: reports/
+
+
+
+  
